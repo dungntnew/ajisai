@@ -1,7 +1,7 @@
 package com.ajisai.boom.web.controller;
 
 import com.ajisai.boom.domain.Flower;
-import com.ajisai.boom.error.InvalidException;
+import com.ajisai.boom.exception.InvalidException;
 import com.ajisai.boom.service.FlowerService;
 import com.ajisai.boom.web.request.FlowerRequest;
 import com.ajisai.boom.web.response.ErrorInfo;
