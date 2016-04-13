@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -24,6 +25,12 @@ public class FlowerService {
 
         return flowers.stream()
                 .collect(Collectors.toMap(fi -> fi.getName(), fi -> fi, (f1, f2) -> f1));
+    }
+
+    public Optional<Flower> getFlower(Long id) {
+
+        Flower flower = flowerRepository.findOne(id);
+        return Optional.ofNullable(flower);
     }
 
     private List<Flower> dumpFlowers(int size) {

@@ -23,6 +23,13 @@ public class Flower extends AbstractEntity implements Serializable {
         this.description = "";
     }
 
+    public Flower(Long id, String name, String startDate, String description) {
+        super(id);
+        this.name = name;
+        this.startDate = startDate;
+        this.description = description;
+    }
+
     @Column(name = "name")
     private String name;
 
