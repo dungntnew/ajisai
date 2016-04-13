@@ -1,6 +1,6 @@
 package com.ajisai.boom.web.request;
 
-import com.ajisai.boom.web.response.RequestError;
+import com.ajisai.boom.web.schema.RequestError;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.springframework.util.StringUtils;

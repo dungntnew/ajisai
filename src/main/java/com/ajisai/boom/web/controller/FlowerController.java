@@ -4,8 +4,9 @@ import com.ajisai.boom.domain.Flower;
 import com.ajisai.boom.exception.InvalidException;
 import com.ajisai.boom.service.FlowerService;
 import com.ajisai.boom.web.request.FlowerRequest;
-import com.ajisai.boom.web.response.ErrorInfo;
-import com.ajisai.boom.web.response.RequestError;
+import com.ajisai.boom.web.response.AjisaiListResponse;
+import com.ajisai.boom.web.schema.ErrorInfo;
+import com.ajisai.boom.web.schema.RequestError;
 import com.ajisai.boom.web.response.RequestErrorInfo;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -27,12 +28,12 @@ public class FlowerController {
 
     @ApiOperation(value = "Find a flower with name")
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Success", response = Flower.class, responseContainer = "Map"),
+            @ApiResponse(code = 200, message = "Success", response = AjisaiListResponse.class),
             @ApiResponse(code = 400, message = "Bad Request", response = RequestErrorInfo.class),
             @ApiResponse(code = 500, message = "Internal Server Error", response = ErrorInfo.class)
     })
     @RequestMapping(value = "/flowers", method = RequestMethod.GET)
-    public Map<String, Flower> getFlowers(@RequestParam String name) throws InvalidException {
+    public AjisaiListResponse getFlowers(@RequestParam String name) throws InvalidException {
 
         FlowerRequest request = new FlowerRequest(name);
         List<RequestError> errors = request.validate();
@@ -40,6 +41,7 @@ public class FlowerController {
             throw new InvalidException(errors);
         }
 
-        return flowerService.getFlowers(request.getName());
+        Map<String, Flower> data = flowerService.getFlowers(request.getName());
+        return new AjisaiListResponse(data);
     }
 }

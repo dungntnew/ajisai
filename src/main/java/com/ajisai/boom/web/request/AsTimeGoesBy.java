@@ -1,7 +1,7 @@
 package com.ajisai.boom.web.request;
 
 import com.ajisai.boom.domain.Flower;
-import com.ajisai.boom.web.response.RequestError;
+import com.ajisai.boom.web.schema.RequestError;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 import lombok.Value;
