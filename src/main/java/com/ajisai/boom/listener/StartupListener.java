@@ -1,0 +1,26 @@
+package com.ajisai.boom.listener;
+
+import com.ajisai.boom.config.RedisConfig;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationListener;
+import org.springframework.context.event.ContextRefreshedEvent;
+import org.springframework.stereotype.Component;
+
+@Component
+public class StartupListener implements ApplicationListener<ContextRefreshedEvent> {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(StartupListener.class);
+
+    @Autowired
+    private RedisConfig redisConfig;
+
+    @Override
+    public void onApplicationEvent(ContextRefreshedEvent event) {
+
+        LOGGER.info("[CONTEXT REFRESHED START].....");
+        LOGGER.info(redisConfig.toString());
+        LOGGER.info("[CONTEXT REFRESHED END].....");
+    }
+}
