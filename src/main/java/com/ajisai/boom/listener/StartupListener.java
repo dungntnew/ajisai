@@ -1,6 +1,6 @@
 package com.ajisai.boom.listener;
 
-import com.ajisai.boom.config.RedisConfig;
+import com.ajisai.boom.config.setting.RedisSetting;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +14,7 @@ public class StartupListener implements ApplicationListener<ContextRefreshedEven
     private static final Logger LOGGER = LoggerFactory.getLogger(StartupListener.class);
 
     @Autowired
-    private RedisConfig redisConfig;
+    private RedisSetting redisConfig;
 
     @Override
     public void onApplicationEvent(ContextRefreshedEvent event) {
