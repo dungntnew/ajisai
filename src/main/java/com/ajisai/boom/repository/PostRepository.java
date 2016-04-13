@@ -1,4 +1,4 @@
-package com.ajisai.boom.service;
+package com.ajisai.boom.repository;
 
 import com.ajisai.boom.domain.Post;
 import org.springframework.data.jpa.repository.JpaRepository;

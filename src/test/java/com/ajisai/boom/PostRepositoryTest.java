@@ -1,6 +1,6 @@
 package com.ajisai.boom;
 
-import com.ajisai.boom.service.PostRepository;
+import com.ajisai.boom.repository.PostRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
