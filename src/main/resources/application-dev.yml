@@ -1,0 +1,39 @@
+# banner
+banner:
+  charset: UTF-8
+  location: classpath:banner.txt
+
+# logger
+logging:
+  level:
+    root: INFO
+    org:
+      hibernate: INFO
+
+# redis
+redis:
+  keyPrefix: ajisai_
+  redisCache:
+    host: localhost
+    port: 6379
+
+spring:
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/test?verifyServerCertificate=false&useSSL=false&requireSSL=false
+    username: test
+    password: test
+    initialize: true
+    max-active: 10
+    max-idle: 8
+    min-idle: 8
+    initial-size: 10
+    test-on-borrow: true
+    validation-query: SELECT 1
+    remove-abandoned: true
+    remove-abandoned-timeout: 60
+  jpa:
+    show-sql: true
+    hibernate:
+      naming-strategy: org.hibernate.cfg.EJB3NamingStrategy
+      ddl-auto: update

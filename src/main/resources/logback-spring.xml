@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <property name="APPLICATION_LOG" value="/var/log/ajisai/application.log" />
+    <include resource="org/springframework/boot/logging/logback/defaults.xml" />
+    <include resource="org/springframework/boot/logging/logback/console-appender.xml" />
+
+    <property name="APPLICATION_LOG_PATTERN"
+              value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%mdc{requestId:-noRequestId}] %level \(%F:%L\\) - %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}" />
+
+    <appender name="FILE"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <encoder>
+            <pattern>${APPLICATION_LOG_PATTERN}</pattern>
+        </encoder>
+        <file>${APPLICATION_LOG}</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_FILE}.%d</fileNamePattern>
+            <maxHistory>730</maxHistory>
+        </rollingPolicy>
+    </appender>
+
+    <logger name="org.hibernate" level="INFO" />
+
+    <springProfile name="dev">
+        <root level="INFO">
+            <appender-ref ref="FILE" />
+            <appender-ref ref="CONSOLE" />
+        </root>
+    </springProfile>
+
+    <springProfile name="!dev">
+        <root level="INFO">
+            <appender-ref ref="FILE" />
+        </root>
+    </springProfile>
+</configuration>

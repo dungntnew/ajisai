@@ -1,0 +1,6 @@
+# production: "java -jar -Dspring.profiles.active=prod build/libs/myapp.jar".
+# dev: "java -jar -Dspring.profiles.active=dev build/libs/myapp.jar".
+
+spring:
+  profiles:
+    active: dev
