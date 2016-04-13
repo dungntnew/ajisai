@@ -3,7 +3,6 @@ package com.ajisai.boom.service;
 import com.ajisai.boom.domain.Flower;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -24,7 +23,7 @@ public class FlowerService {
     private List<Flower> dumpFlowers(int size) {
         return IntStream
                 .range(0, size)
-                .mapToObj(i -> new Flower("flower: " + i, new Date()))
+                .mapToObj(i -> new Flower("flower: " + i, "2016-01-20"))
                 .collect(Collectors.toList());
     }
 }

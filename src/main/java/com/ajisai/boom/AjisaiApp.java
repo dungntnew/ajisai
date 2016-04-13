@@ -9,4 +9,6 @@ public class AjisaiApp {
 	public static void main(String[] args) {
 		SpringApplication.run(AjisaiApp.class, args);
 	}
+
+
 }
