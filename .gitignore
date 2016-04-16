@@ -15,7 +15,6 @@ bin
 build
 lib/
 target
-.factorypath
 .springBeans
 interpolated*.xml
 dependency-reduced-pom.xml
@@ -32,5 +31,5 @@ overridedb.*
 *.iws
 .idea
 *.jar
+!libs/*.jar
 .DS_Store
-.factorypath
