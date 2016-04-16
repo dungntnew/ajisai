@@ -18,9 +18,5 @@ public class StartupListener implements ApplicationListener<ContextRefreshedEven
 
     @Override
     public void onApplicationEvent(ContextRefreshedEvent event) {
-
-        LOGGER.info("[CONTEXT REFRESHED START].....");
-        LOGGER.info(redisConfig.toString());
-        LOGGER.info("[CONTEXT REFRESHED END].....");
     }
 }
