@@ -17,13 +17,23 @@ redis:
     host: localhost
     port: 6379
 
+# EMBEDDED SERVER CONFIGURATION (ServerProperties)
+server:
+  port: 8080
+
 spring:
+# THYMELEAF (ThymeleafAutoConfiguration)
+  thymeleaf:
+    enabled: true
+    cache: false
+
+# DATASOURCE (DataSourceAutoConfiguration & DataSourceProperties)
   datasource:
     driverClassName: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/test?verifyServerCertificate=false&useSSL=false&requireSSL=false
+    url: jdbc:mysql://localhost:3306/ajisai?verifyServerCertificate=false&useSSL=false&requireSSL=false
     username: test
     password: test
-    initialize: true
+    initialize: false
     max-active: 10
     max-idle: 8
     min-idle: 8
@@ -32,12 +42,22 @@ spring:
     validation-query: SELECT 1
     remove-abandoned: true
     remove-abandoned-timeout: 60
+
+# JPA (JpaBaseConfiguration, HibernateJpaAutoConfiguration)
   jpa:
     show-sql: true
     hibernate:
-      naming-strategy: org.hibernate.cfg.EJB3NamingStrategy
-      ddl-auto: update
-
+      naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
+      ddl-auto: none
+  data:
+    jpa:
+      repositories:
+        enabled: true
+# INTERNATIONALIZATION (MessageSourceAutoConfiguration)
+  messages:
+    basename: messages
+    cache-seconds: -1
+    encoding: UTF-8
 myconfig:
    types:
       - type 1
