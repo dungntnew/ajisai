@@ -17,11 +17,11 @@ import java.time.format.DateTimeFormatter;
 public class Flower implements Serializable {
     public static final DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
-    public Flower(String name, String startDate) {
+    public Flower(String name, String startDate, String description) {
         super();
         this.name = name;
         this.startDate = startDate;
-        this.description = "";
+        this.description = description;
     }
 
     private static final long serialVersionUID = 1L;

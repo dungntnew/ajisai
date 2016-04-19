@@ -36,7 +36,7 @@ public class FlowerService {
     private List<Flower> dumpFlowers(int size) {
         return IntStream
                 .range(0, size)
-                .mapToObj(i -> new Flower("flower: " + i, "2016-01-20"))
+                .mapToObj(i -> new Flower("flower: " + i, "2016-01-20", "xxx"))
                 .collect(Collectors.toList());
     }
 }

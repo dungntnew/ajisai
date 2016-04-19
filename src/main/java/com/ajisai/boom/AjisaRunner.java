@@ -117,6 +117,5 @@ public class AjisaRunner {
             runner.fetchAllOrder();
             runner.fetchOrdersByCustomerId();
         }
-        ;
     }
 }
